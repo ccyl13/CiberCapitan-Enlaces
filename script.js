@@ -1,34 +1,15 @@
 // script.js
 
-// Animación para los escudos que flotan de manera aleatoria
 document.addEventListener("DOMContentLoaded", () => {
-  const shields = document.querySelectorAll(".shield");
+  const buttons = document.querySelectorAll(".buttons a");
 
-  shields.forEach(shield => {
-    animateShield(shield);
+  buttons.forEach((btn, index) => {
+    btn.style.opacity = 0;
+    btn.style.transform = "translateY(20px)";
+    setTimeout(() => {
+      btn.style.transition = "all 0.6s ease";
+      btn.style.opacity = 1;
+      btn.style.transform = "translateY(0)";
+    }, index * 200);
   });
-
-  function animateShield(shield) {
-    const duration = Math.random() * 5 + 5; // entre 5 y 10 segundos
-    const delay = Math.random() * 5;
-    const startX = Math.random() * 100;
-    const endX = Math.random() * 100;
-    const startY = Math.random() * 100;
-    const endY = Math.random() * 100;
-
-    shield.animate([
-      { transform: `translate(${startX}vw, ${startY}vh)`, opacity: 0.4 },
-      { transform: `translate(${endX}vw, ${endY}vh)`, opacity: 0.7 },
-      { transform: `translate(${startX}vw, ${startY}vh)`, opacity: 0.4 }
-    ], {
-      duration: duration * 1000,
-      iterations: Infinity,
-      delay: delay * 1000
-    });
-  }
 });
-
-// Efecto suave al cargar la página
-window.onload = () => {
-  document.querySelector(".main-content").classList.add("visible");
-};
