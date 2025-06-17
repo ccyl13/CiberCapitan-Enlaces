@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function createShield() {
     const shield = document.createElement("img");
-    shield.src = "escudo.png"; // Asegúrate de que escudo.png esté en el mismo directorio
+    shield.src = "escudo.png";
     shield.className = "floating-shield";
     shield.style.left = Math.random() * 100 + "vw";
     shield.style.top = "-100px";
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     shield.addEventListener("animationend", () => {
       shield.remove();
-      createShield(); // Crear uno nuevo tras finalizar
+      createShield();
     });
   }
 
